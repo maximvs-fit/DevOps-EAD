@@ -14,8 +14,8 @@ class objetos():
     
     def borrifar(self,vezes):
         print (vezes)
-        return 
-  
+        return vezes
+   
     
     def ventilar (self,velocidade):
         return True

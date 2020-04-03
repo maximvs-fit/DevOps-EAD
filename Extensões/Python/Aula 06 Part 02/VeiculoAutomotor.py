@@ -1,11 +1,4 @@
 
-
-
-class ignicao():
-    def ligar(self):
-        return "vrum"
-      
-
 class Frenagem():
     
     def brecar(self):
@@ -13,21 +6,28 @@ class Frenagem():
         print (acao)
         return acao
 
+
+class ignicao():
+    def ligar(self):
+        return "vrum"   
+
 class VeiculoAutomotor(Frenagem,ignicao):
     
     def buzinar(self,vezes):
         return vezes
     
     def brecar(self):
-        return super().brecar()
+        acao = "breca com 4 rodas"
+        return acao
     
-        
+      
     
     
 ####INSTANCINDO 
 
 fusca = VeiculoAutomotor()
-print (fusca.brecar())
+print(fusca.brecar())
+
 
 
         
