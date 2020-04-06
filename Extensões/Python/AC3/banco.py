@@ -25,42 +25,35 @@ class Cliente():
         self.__telefone = telefone
         self.__email = email
 
-
-
-  
     def get_nome(self):
         return self.__nome
-   
-
 
     def get_telefone(self):
         return self.__telefone
-    
-        
-    def set_telefone(self, novo_telefone: int) :
+
+    def set_telefone(self, novo_telefone: int):
         """
         Mutador do atributo telefone, caso não receba um número,
         gera um TypeError
         """
-        isinstance(self.__telefone,int)
-        raise  TypeError ("Digite um número inteiro")  
-            
-    def get_email(self) :
+        if type (novo_telefone) is not int:  
+            raise TypeError ("Você não digitou um número")
+        self.__telefone = novo_telefone
+
+    def get_email(self):
         return self.__email
-        
-    
 
     def set_email(self, novo_email: str):
         """
         Mutador do atributo Email, caso não receba um email válido
         (contendo o @), gera um ValueError.
         """
-        if '@' in self.__email:
-            novo_email = self.__email
+        if '@' in novo_email:
+            self.__email = novo_email 
         else:
-            raise ValueError ("Digite um e-mail válido")
-            
-                         
+            raise ValueError("Digite um e-mail válido")
+
+
 class Banco():
     """
     A classe Banco deverá receber um nome em sua construção e deverá
@@ -73,33 +66,30 @@ class Banco():
     DICA2: utilze a variável acima para gerar automaticamente o número das
     contas do banco
     """
-    
+
     def __init__(self, Banco: str):
         self.__itau = Banco
-        
 
     def get_nome(self):
         return self.__itau
         """Acessor do Atributo Nome."""
-       
 
-    def abre_conta(self, clientes: List[Cliente], saldo_ini: Number) :
-        
+    def abre_conta(self, clientes: List[Cliente], saldo_ini: Number):
+
         clientes.append
         saldo_ini = input("Informe o saldo inicial")
-        
+
         saldo_ini = input('Informe o Saldo Inicial ')
-        try: 
-            saldo_ini>= 0
+        try:
+            saldo_ini >= 0
         except ValueError:
             ('O saldo Inicial Deverá ser maior que zero')
-        
+
         """
         Método para abertura de nova conta, recebe os clientes
         e o saldo inicial.
         Caso o saldo inicial seja menor que 0 devolve um ValueError
         """
-       
 
     def lista_contas(self) -> List['Conta']:
         """Retorna a lista com todas as contas do banco."""
