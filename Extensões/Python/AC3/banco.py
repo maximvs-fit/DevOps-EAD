@@ -68,21 +68,26 @@ class Banco():
     """
 
     def __init__(self, Banco: str):
-        self.__itau = Banco
-
+        self.__Banco = "nome"
+        self.__contas = []  #Variável para armazenar as contas
+    
     def get_nome(self):
-        return self.__itau
+        return self.__Banco
         """Acessor do Atributo Nome."""
 
     def abre_conta(self, clientes: List[Cliente], saldo_ini: Number):
+        self.__cliente = clientes
+        self.__saldo_ini = saldo_ini
+        
+        if saldo_ini < 0:
+            raise ValueError("Saldo Insuficiente")
+        else:
+            self.__saldo_ini = saldo_ini
+            self.__contas.append(len(self.__contas)+1)   
+            
+        
+            
 
-        clientes.append
-        saldo_ini = input("Informe o saldo inicial")
-
-        saldo_ini = input('Informe o Saldo Inicial ')
-        try:
-            saldo_ini >= 0
-        except ValueError:
             ('O saldo Inicial Deverá ser maior que zero')
 
         """
@@ -91,10 +96,9 @@ class Banco():
         Caso o saldo inicial seja menor que 0 devolve um ValueError
         """
 
-    def lista_contas(self) -> List['Conta']:
+    def lista_contas(self):
         """Retorna a lista com todas as contas do banco."""
-        pass
-
+        return self.__contas
 
 class Conta():
     """
@@ -112,27 +116,30 @@ class Conta():
     def __init__(self, clientes: List[Cliente],
                  numero_conta: int,
                  saldo_inicial: Number):
-        pass
+        self.clientes = clientes
+        
 
-    def get_clientes(self) -> List[Cliente]:
+    def get_clientes(self) :
         '''
         Acessor para o atributo clientes
         '''
-        pass
+        return self.__clientes
 
-    def get_saldo(self) -> Number:
+    def get_saldo(self) :
+        
         '''
         Acessor para o atributo saldo
         '''
-        pass
+        return self.__saldo
+    
 
-    def get_numero(self) -> int:
+    def get_numero(self) :
         '''
         Acessor para o atributo numero
         '''
-        pass
+        return self.__numero_conta
 
-    def saque(self, valor: Number) -> None:
+    def saque(self, valor: Number) :
         '''
         Método de saque da classe Conta, operação deve aparecer no extrato
 
