@@ -148,11 +148,14 @@ class Conta():
         else:
             self.__saldo = self.__saldo - valor
             self.__operações.append(('saque', valor))
+            
     def deposito(self, valor: Number):
         '''
         Método depósito da classe Conta, operação deve aparecer no extrato
         '''
-        pass
+        self.__valor = valor
+        self.__saldo = self.__saldo - self.__valor
+        self.__operações.append(('extrato', valor))
 
     def extrato(self) -> List[Dict[str, Number]]:
         '''
