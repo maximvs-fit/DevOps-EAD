@@ -11,7 +11,6 @@ Number = Union[int, float]
 class Cliente():
     """
     Classe Cliente do Banco.
-
     possui os atributos PRIVADOS:
     - nome,
     - telefone,
@@ -64,14 +63,13 @@ class Banco():
     - abre_conta(): abre uma nova conta, atribuindo o numero da conta em ordem
     crescente a partir de 1 para a primeira conta aberta.
     - lista_contas(): apresenta um resumo de todas as contas do banco
-
     DICA: crie uma variável interna que armazene todas as contas do banco
     DICA2: utilze a variável acima para gerar automaticamente o número das
     contas do banco
     """
     def __init__(self, nome: str):
         self.__nome = nome
-        self.__contas = []
+        self.__ArmazenaContas = [Conta]
         
     def get_nome(self) -> str:
         """Acessor do Atributo Nome."""
@@ -85,13 +83,15 @@ class Banco():
         Caso o saldo inicial seja menor que 0 devolve um ValueError
         """
         
-        
-        
         if saldo_ini < 0:
             raise ValueError("Saldo Deverá Ser Maior que Zero")
+        else:
+            novaconta = Conta
+            
+            self.__numero_conta = int (len(self.__ArmazenaContas)+1)
+            
+            self.__ArmazenaContas.append(Conta)
         
-        self.__numero_conta = int (len(self.__contas)+1)
-        self.__clientes.append( self.__cliente,self.__saldo_ini)
         
 
     def lista_contas(self) -> List['Conta']:
@@ -107,7 +107,6 @@ class Conta():
     - Caso o saldo inicial seja menor que zero deve lançar um ValueError
     - A criação da conta deve aparecer no extrato com o valor
     do saldo_inicial, exemplo: ('saldo_inicial', 1000)
-
     DICA: Crie uma variável interna privada para guardar as
     operações feitas na conta
     """
@@ -140,7 +139,6 @@ class Conta():
     def saque(self, valor: Number) -> None:
         '''
         Método de saque da classe Conta, operação deve aparecer no extrato
-
         Caso o valor do saque seja maior que o saldo da conta,
         deve retornar um ValueError, e não efetuar o saque
         '''
