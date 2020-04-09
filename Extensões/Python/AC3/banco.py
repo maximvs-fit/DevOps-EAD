@@ -85,20 +85,20 @@ class Banco():
         self.__clientes = clientes
         self.__saldo_ini = saldo_ini
         
+        
         if saldo_ini < 0:
             raise ValueError("Saldo Deverá Ser Maior que Zero")
         else:
-            novaconta = Conta
-            
-            self.__numero_conta = int (len(self.__ArmazenaContas))+1
-            
+            numero_Conta  = int (len(self.__ArmazenaContas))+1
+            novaconta = Conta(self.__clientes,numero_Conta, self.__saldo_ini)
             self.__ArmazenaContas.append(novaconta)
         
         
 
     def lista_contas(self) -> List['Conta']:
         """Retorna a lista com todas as contas do banco."""
-        return self.__contas
+        
+        return self.__ArmazenaContas
 
 
 class Conta():
