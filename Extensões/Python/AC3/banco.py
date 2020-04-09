@@ -69,7 +69,7 @@ class Banco():
     """
     def __init__(self, nome: str):
         self.__nome = nome
-        self.__ArmazenaContas = [Conta]
+        self.__ArmazenaContas = []
         
     def get_nome(self) -> str:
         """Acessor do Atributo Nome."""
@@ -82,15 +82,17 @@ class Banco():
         e o saldo inicial.
         Caso o saldo inicial seja menor que 0 devolve um ValueError
         """
+        self.__clientes = clientes
+        self.__saldo_ini = saldo_ini
         
         if saldo_ini < 0:
             raise ValueError("Saldo Deverá Ser Maior que Zero")
         else:
             novaconta = Conta
             
-            self.__numero_conta = int (len(self.__ArmazenaContas)+1)
+            self.__numero_conta = int (len(self.__ArmazenaContas))+1
             
-            self.__ArmazenaContas.append(Conta)
+            self.__ArmazenaContas.append(novaconta)
         
         
 
